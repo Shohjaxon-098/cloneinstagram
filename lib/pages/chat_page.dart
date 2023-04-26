@@ -18,7 +18,11 @@ class _ChatPageState extends State<ChatPage> {
         backgroundColor: Colors.black,
         title: Text("otabekov_shohjakhon_"),
         actions: [
-          Icon(Icons.video_camera_front_outlined),
+          Icon(Icons.more_horiz_outlined),
+          SizedBox(
+            width: 10,
+          ),
+          Icon(Icons.airline_stops_outlined),
           SizedBox(
             width: 10,
           ),
@@ -40,33 +44,106 @@ class _ChatPageState extends State<ChatPage> {
                       builder: (context) => ChatSearchPage(),
                     ));
               },
-              child: Container(
-                width: double.infinity,
-                height: 30,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 35,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 47, 47, 47),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Icon(
+                            Icons.search,
+                            color: Colors.white60,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "Поиск",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.white60),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    "Фильтровать",
+                    style: TextStyle(color: Colors.blue.shade500, fontSize: 16),
+                  )
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                width: 120,
+                height: 35,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 47, 47, 47),
-                  borderRadius: BorderRadius.circular(7),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Icon(
-                      Icons.search,
-                      color: Colors.white60,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
                     Text(
-                      "Qidiruv",
+                      "Основны",
                       style: TextStyle(fontSize: 15, color: Colors.white60),
                     ),
                   ],
                 ),
               ),
-            ),
+              Container(
+                width: 120,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 47, 47, 47),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Основны",
+                      style: TextStyle(fontSize: 15, color: Colors.white60),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: 120,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 47, 47, 47),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Основны",
+                      style: TextStyle(fontSize: 15, color: Colors.white60),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),

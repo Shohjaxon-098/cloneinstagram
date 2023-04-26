@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cloneinstagram/main.dart';
+import 'package:cloneinstagram/pages/chat_page.dart';
 import 'package:cloneinstagram/pages/search_page.dart';
 import 'package:cloneinstagram/pages/window_page.dart';
 import 'package:flutter/material.dart';
@@ -21,62 +22,67 @@ class _HomePageState extends State<HomePage> {
   int hozirgiindex = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _controller,
-        children: [
-          MyWidget(),
-          SearchPage(),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Colors.white,
-        selectedIconTheme: IconThemeData(color: Colors.white),
-        currentIndex: hozirgiindex,
-        onTap: (value) {
-          setState(() {
-            hozirgiindex = value;
-          });
+    return PageView(
+      
+      children: [
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: _controller,
+            children: [
+              MyWidget(),
+              SearchPage(),
+            ],
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            unselectedItemColor: Colors.white,
+            selectedIconTheme: IconThemeData(color: Colors.white),
+            currentIndex: hozirgiindex,
+            onTap: (value) {
+              setState(() {
+                hozirgiindex = value;
+              });
 
-          _controller.animateToPage(hozirgiindex,
-              duration: Duration(milliseconds: 100), curve: Curves.linear);
-        },
-        items: [
-          BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage("assets/home.png"),
-                size: 20,
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage("assets/search.png"),
-                size: 20,
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage("assets/add.png"),
-                size: 20,
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage("assets/video.png"),
-                size: 20,
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-              ),
-              label: ""),
-        ],
-        backgroundColor: Colors.black,
-        type: BottomNavigationBarType.fixed,
-      ),
+              _controller.animateToPage(hozirgiindex,
+                  duration: Duration(milliseconds: 200), curve: Curves.linear);
+            },
+            items: [
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage("assets/home.png"),
+                    size: 20,
+                  ),
+                  label: ""),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage("assets/search.png"),
+                    size: 20,
+                  ),
+                  label: ""),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage("assets/add.png"),
+                    size: 20,
+                  ),
+                  label: ""),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage("assets/video.png"),
+                    size: 20,
+                  ),
+                  label: ""),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person,
+                  ),
+                  label: ""),
+            ],
+            backgroundColor: Colors.black,
+            type: BottomNavigationBarType.fixed,
+          ),
+        ),ChatPage(),
+      ],
     );
   }
 }

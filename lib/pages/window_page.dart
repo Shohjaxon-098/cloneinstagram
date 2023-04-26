@@ -20,19 +20,17 @@ class _MyWidgetState extends State<MyWidget> {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 0,
+      appBar: AppBar(toolbarHeight: 60,
         actions: [
           GestureDetector(
-            onTap: () {
-             
-            },
-            child: ImageIcon(
+            onTap: () {},
+            child: const ImageIcon(
               AssetImage("assets/heart.png"),
               color: Colors.white,
               size: 25,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 23,
           ),
           GestureDetector(
@@ -40,57 +38,56 @@ class _MyWidgetState extends State<MyWidget> {
               Navigator.push(
                 context,
                 PageTransition(
-                            type: PageTransitionType.rightToLeft,
-                            child: ChatPage(),
-                            isIos: false,
-                            duration: Duration(milliseconds: 200),
-                          ),
-                
+                  type: PageTransitionType.rightToLeft,
+                  child: ChatPage(),
+                  isIos: false,
+                  duration: Duration(milliseconds: 200),
+                ),
               );
             },
-            child: ImageIcon(
+            child: const ImageIcon(
               AssetImage("assets/chat.png"),
               color: Colors.white,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
         ],
         backgroundColor: Colors.black,
-        title: Text(
+        title: const Text(
           "Instagram",
           style: TextStyle(
               fontSize: 40, fontFamily: "Billabong", color: Colors.white),
         ),
       ),
       backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            CircularParticle(
-              width: w,
-              height: h,
-              awayRadius: w / 5,
-              numberOfParticles: 150,
-              speedOfParticles: 2,
-              maxParticleSize: 7,
-              particleColor: Colors.white,
-              awayAnimationDuration: Duration(milliseconds: 600),
-              awayAnimationCurve: Curves.easeInOutBack,
-              onTapAnimation: true,
-              isRandSize: true,
-              isRandomColor: false,
-              connectDots: true,
-              enableHover: true,
-              hoverColor: Colors.red,
-              hoverRadius: 90,
+      body: Stack(
+        children: [
+          CircularParticle(
+            width: w,
+            height: h,
+            awayRadius: w / 5,
+            numberOfParticles: 150,
+            speedOfParticles: 2,
+            maxParticleSize: 8,
+            particleColor: Colors.white,
+            awayAnimationDuration: Duration(milliseconds: 300),
+            awayAnimationCurve: Curves.easeInOutBack,
+            onTapAnimation: true,
+            isRandSize: true,
+            isRandomColor: false,
+            connectDots: true,
+            enableHover: true,
+            hoverColor: Colors.red,
+            hoverRadius: 100,
+          ),
+          BackdropFilter(
+            filter: ImageFilter.blur(
+              sigmaX: 0.5,
+              sigmaY: 0.5,
             ),
-            BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 4,
-                sigmaY: 4,
-              ),
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   Padding(
@@ -104,7 +101,6 @@ class _MyWidgetState extends State<MyWidget> {
                     height: 10,
                   ),
                   SingleChildScrollView(
-                   
                     scrollDirection: Axis.horizontal,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 5),
@@ -112,47 +108,47 @@ class _MyWidgetState extends State<MyWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _istories(),
@@ -160,37 +156,54 @@ class _MyWidgetState extends State<MyWidget> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   _postImage(),
                   _postImage(),
                 ],
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
 }
 
 Widget _istories() {
-  return CircleAvatar(
-    radius: 33,
-    backgroundColor: Colors.red,
-    child: CircleAvatar(
-      backgroundImage: AssetImage(
-        "assets/facebook.png",
+  return Container(
+    child: Container(
+     margin: EdgeInsets.all(3),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black,width: 3),
+        shape: BoxShape.circle,
+        image: DecorationImage(fit: BoxFit.cover,
+          image: AssetImage("assets/stori.jpg"),
+        ),
       ),
-      radius: 30,
+    ),
+    width: 70,
+    height: 70,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(40),
+      gradient: LinearGradient(
+        begin: Alignment.bottomCenter,
+        colors: [
+          Colors.yellow.shade600,
+          Colors.orange,
+          Colors.red,
+          Colors.pink,
+          Colors.purple.shade500,
+        ],
+      ),
     ),
   );
 }
 
 Widget _smallistories() {
-  return Padding(
-    padding: const EdgeInsets.only(left: 6),
+  return const Padding(
+    padding: EdgeInsets.only(left: 6),
     child: CircleAvatar(
       backgroundImage: AssetImage(
         "assets/facebook.png",
@@ -201,8 +214,8 @@ Widget _smallistories() {
 }
 
 Widget _smallestistories() {
-  return Padding(
-    padding: const EdgeInsets.only(left: 6),
+  return const Padding(
+    padding: EdgeInsets.only(left: 6),
     child: CircleAvatar(
       backgroundImage: AssetImage(
         "assets/facebook.png",
@@ -213,11 +226,12 @@ Widget _smallestistories() {
 }
 
 Widget _postImage() {
+  
   return Column(
     children: [
       Stack(
         children: [
-          Image(
+          const Image(
             width: double.infinity,
             image: AssetImage(
               "assets/post.jpg",
@@ -229,14 +243,14 @@ Widget _postImage() {
             child: Row(
               children: [
                 _smallistories(),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      children: [
+                      children: const [
                         Text(
                           "Facebook",
                           style: TextStyle(color: Colors.white, fontSize: 18),
@@ -258,8 +272,8 @@ Widget _postImage() {
                     ),
                   ],
                 ),
-                Spacer(),
-                Icon(
+                const Spacer(),
+                const Icon(
                   Icons.more_vert_sharp,
                   color: Colors.white,
                   size: 30,
@@ -269,14 +283,14 @@ Widget _postImage() {
           ),
         ],
       ),
-      SizedBox(
+      const SizedBox(
         height: 5,
       ),
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            children: [
+            children: const [
               SizedBox(
                 width: 5,
               ),
@@ -310,8 +324,8 @@ Widget _postImage() {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Text(
               "24203 likes",
               style: TextStyle(color: Colors.white),
@@ -321,38 +335,33 @@ Widget _postImage() {
             padding: const EdgeInsets.only(left: 8),
             child: Row(
               children: [
-                Text(
+                const Text(
                   "Facebook",
                   style: TextStyle(color: Colors.white),
                 ),
-                Icon(
+                const Icon(
                   Icons.verified_rounded,
                   size: 15,
                   color: Colors.blue,
                 ),
-                Text(
-                  " Bu manzara eng ciroylisi edi chunli bu ra...",
-                  style: TextStyle(color: Colors.white),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Text(
-                    " more",
-                    style: TextStyle(
-                      color: Colors.white54,
-                    ),
-                  ),
-                ),
+                 Flexible(
+                   child: Text(
+                    
+                    " Bu manzara eng ciroylisi edi chunki bu rasm",overflow: TextOverflow.ellipsis,
+                    style: TextStyle(color: Colors.white),
+                                 ),
+                 ),
+               
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Row(
             children: [
               _smallestistories(),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Expanded(
@@ -367,17 +376,17 @@ Widget _postImage() {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: Text(
               "View all 3 comments",
               style: TextStyle(color: Colors.white54, fontSize: 16),
             ),
           ),
           Row(
-            children: [
+            children: const [
               Padding(
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                   horizontal: 10,
                 ),
                 child: Text(
@@ -393,7 +402,7 @@ Widget _postImage() {
           ),
         ],
       ),
-      SizedBox(
+      const SizedBox(
         height: 10,
       ),
     ],

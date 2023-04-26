@@ -1,4 +1,4 @@
-#Wed Apr 05 09:03:27 UZT 2023
+#Mon Apr 24 22:22:33 UZT 2023
 base.0=D\:\\cloneinstagram\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
